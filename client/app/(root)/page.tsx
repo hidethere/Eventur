@@ -12,12 +12,28 @@ export default async function Home({ searchParams }: SearchParamProps) {
   const searchText = (searchParams?.query as string) || '';
   const category = (searchParams?.category as string) || '';
 
-  const events = await getAllEvents({
+/*   const events = await getAllEvents({
     query: searchText,
     category,
     page,
     limit: 6
-  })
+  }) */
+
+  const events = {
+    id: "olais",
+  title: "title",
+  description: "description",
+  location: "location",
+  createdAt: "11",
+  imageUrl: "imageurl",
+  startDateTime: "12",
+  endDateTime: "11",
+  price: "13",
+  isFree: false,
+  url: "url",
+  category: { _id: "categoria", name: "name" },
+  organizer: { _id: "id", firstName: "firstname", lastName: "lastname" }
+  }
 
   return (
     <>
@@ -52,13 +68,13 @@ export default async function Home({ searchParams }: SearchParamProps) {
         </div>
 
         <Collection 
-          data={events?.data}
+          data={events}
           emptyTitle="No Events Found"
           emptyStateSubtext="Come back later"
           collectionType="All_Events"
           limit={6}
           page={page}
-          totalPages={events?.totalPages}
+          totalPages={2/*events?.totalPages*/}
         />
       </section>
     </>

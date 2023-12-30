@@ -5,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { ICategory } from "@/lib/database/models/category.model"
+import { ICategory } from "@/lib/models/category.model"
 import { startTransition, useEffect, useState } from "react"
 import {
   AlertDialog,
@@ -35,7 +35,7 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
       categoryName: newCategory.trim()
     })
       .then((category) => {
-        setCategories((prevState) => [...prevState, category])
+        //setCategories((prevState) => [...prevState, category])
       })
   }
 
@@ -43,7 +43,7 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
     const getCategories = async () => {
       const categoryList = await getAllCategories();
 
-      categoryList && setCategories(categoryList as ICategory[])
+      //categoryList && setCategories(categoryList as ICategory[])
     }
 
     getCategories();
@@ -57,7 +57,7 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
       <SelectContent>
         {categories.length > 0 && categories.map((category) => (
           <SelectItem key={category._id} value={category._id} className="select-item p-regular-14">
-            {category.name}
+            {category.title}
           </SelectItem>
         ))}
 

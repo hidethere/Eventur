@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { getAllCategories } from "@/lib/actions/category.actions";
-import { ICategory } from "@/lib/database/models/category.model";
+import { ICategory } from "@/lib/models/category.model";
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -22,7 +22,7 @@ const CategoryFilter = () => {
     const getCategories = async () => {
       const categoryList = await getAllCategories();
 
-      categoryList && setCategories(categoryList as ICategory[])
+      //categoryList && setCategories(categoryList as ICategory[])
     }
 
     getCategories();
@@ -56,8 +56,8 @@ const CategoryFilter = () => {
         <SelectItem value="All" className="select-item p-regular-14">All</SelectItem>
 
         {categories.map((category) => (
-          <SelectItem value={category.name} key={category._id} className="select-item p-regular-14">
-            {category.name}
+          <SelectItem value={category.title} key={category._id} className="select-item p-regular-14">
+            {category.title}
           </SelectItem>
         ))}
       </SelectContent>

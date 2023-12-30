@@ -1,8 +1,8 @@
-import Collection from '@/components/shared/Collection'
+ import Collection from '@/components/shared/Collection'
 import { Button } from '@/components/ui/button'
 import { getEventsByUser } from '@/lib/actions/event.actions'
 import { getOrdersByUser } from '@/lib/actions/order.actions'
-import { IOrder } from '@/lib/database/models/order.model'
+import { IOrder } from '@/lib/models/order.model'
 import { SearchParamProps } from '@/types'
 import { auth } from '@clerk/nextjs'
 import Link from 'next/link'
@@ -19,7 +19,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
 
   const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
   const organizedEvents = await getEventsByUser({ userId, page: eventsPage })
-
+ 
   return (
     <>
       {/* My Tickets */}
@@ -60,7 +60,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
       </section>
 
       <section className="wrapper my-8">
-        <Collection 
+        {/*<Collection 
           data={organizedEvents?.data}
           emptyTitle="No events have been created yet"
           emptyStateSubtext="Go create some now"
@@ -69,7 +69,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           page={eventsPage}
           urlParamName="eventsPage"
           totalPages={organizedEvents?.totalPages}
-        />
+        />*/}
       </section>
     </>
   )

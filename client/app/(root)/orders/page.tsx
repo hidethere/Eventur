@@ -2,7 +2,7 @@ import Search  from '@/components/shared/Search'
 import { getOrdersByEvent } from '@/lib/actions/order.actions'
 import { formatDateTime, formatPrice } from '@/lib/utils'
 import { SearchParamProps } from '@/types'
-import { IOrderItem } from '@/lib/database/models/order.model'
+import { IOrderItem } from '@/lib/models/order.model'
 
 const Orders = async ({ searchParams }: SearchParamProps) => {
   const eventId = (searchParams?.eventId as string) || ''
@@ -32,7 +32,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
             </tr>
           </thead>
           <tbody>
-            {orders && orders.length === 0 ? (
+            {/*orders && orders.length === 0 ? (
               <tr className="border-b">
                 <td colSpan={5} className="py-4 text-center text-gray-500">
                   No orders found.
@@ -58,7 +58,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
                     </tr>
                   ))}
               </>
-            )}
+            )*/}
           </tbody>
         </table>
       </section>

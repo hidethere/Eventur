@@ -20,7 +20,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Checkbox } from "../ui/checkbox"
 import { useRouter } from "next/navigation"
 import { createEvent, updateEvent } from "@/lib/actions/event.actions"
-import { IEvent } from "@/lib/database/models/event.model"
+import { IEvent } from "@/lib/models/event.model"
 
 
 type EventFormProps = {
@@ -69,10 +69,10 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           path: '/profile'
         })
 
-        if(newEvent) {
+       /*  if(newEvent) {
           form.reset();
           router.push(`/events/${newEvent._id}`)
-        }
+        } */
       } catch (error) {
         console.log(error);
       }
@@ -91,10 +91,10 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           path: `/events/${eventId}`
         })
 
-        if(updatedEvent) {
+       /*  if(updatedEvent) {
           form.reset();
           router.push(`/events/${updatedEvent._id}`)
-        }
+        } */
       } catch (error) {
         console.log(error);
       }
